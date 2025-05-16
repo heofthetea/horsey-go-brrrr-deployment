@@ -33,7 +33,7 @@ services:
     container_name: frontend
     restart: unless-stopped
     environment:
-      HORSEY_API_BASE_URL: http://${AZURE_IP}/api/
+      HORSEY_API_BASE_URL: https://${AZURE_IP}/api/
       HORSEY_WEBSOCKET_URL: ws://${AZURE_IP}/api/ws
       HORSEY_KEYCLOAK_URL: https://${AZURE_IP}/auth
       HORSEY_KEYCLOAK_REALM: horsey-realm
