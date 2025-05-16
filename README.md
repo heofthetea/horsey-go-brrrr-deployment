@@ -19,7 +19,7 @@ The following should be provided:
 - A keycloak accessible under `localhost:8081`
   - the keycloak will have a fully configured realm, with the following two testing users:
     - username: `test1`, password: `test`
-    - username: `test2`, password: `test2`
+    - username: `test2`, password: `test`
 - The Vue.js app accessible under `localhost:15173`
 
 > **Warning**: please test the game workflow only with two different users. Playing a game with oneself leads to... questionable behaviour, which is not yet fixed.
