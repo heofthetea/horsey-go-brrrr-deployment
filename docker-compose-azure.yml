@@ -1,6 +1,6 @@
 services:
   test:
-    image: testcontainers/hello-world:latest
+    image: testcontainers/helloworld:latest
     container_name: test
     ports:
       - "8080:8080"
