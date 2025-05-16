@@ -1,4 +1,10 @@
 services:
+  test:
+    image: testcontainers/hello-world:latest
+    container_name: test
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
   api:
     image: heofthetea/horsey-go-brrrr-be:jvm-latest
     container_name: api
