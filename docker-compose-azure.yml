@@ -13,7 +13,7 @@ services:
     container_name: api
     restart: unless-stopped
     environment:
-      QUARKUS_OIDC_AUTH_SERVER_URL: http://${AZURE_IP}/auth/realms/horsey-realm
+      QUARKUS_OIDC_AUTH_SERVER_URL: https://${AZURE_IP}/auth/realms/horsey-realm
       QUARKUS_DATASOURCE_USERNAME: ${POSTGRES_USER}
       QUARKUS_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}
       QUARKUS_DATASOURCE_JDBC_URL: jdbc:postgresql://postgres:5432/horsey_api
@@ -33,7 +33,7 @@ services:
     restart: unless-stopped
     environment:
       HORSEY_API_BASE_URL: http://api:8085/api/
-      HORSEY_KEYCLOAK_URL: http://${AZURE_IP}/auth
+      HORSEY_KEYCLOAK_URL: https://${AZURE_IP}/auth
       HORSEY_KEYCLOAK_REALM: horsey-realm
       HORSEY_KEYCLOAK_CLIENT_ID: horsey-frontend
     networks:
@@ -70,16 +70,17 @@ services:
     volumes:
       - ./keycloak/:/opt/keycloak/data/import/
     environment:
-      - KC_BOOTSTRAP_ADMIN_USERNAME=QsIoaMkbOzclule792V8
-      - KC_BOOTSTRAP_ADMIN_PASSWORD=twnL*~P@4IHfC'|^<vxe6}Vz
-      - KC_HOSTNAME=${AZURE_IP}
-      - KC_HOSTNAME_STRICT=true
-      - KC_HTTP_PORT=8081
-      - KC_HTTP_RELATIVE_PATH=/auth # listen under /auth - way easier for nginx
-      - KC_DB_URL=jdbc:postgresql://postgres:5432/horsey_keycloak
-      - KC_DB_USERNAME=${POSTGRES_USER}
-      - KC_DB_PASSWORD=${POSTGRES_PASSWORD}
-      - KC_DB=postgres
+      KC_BOOTSTRAP_ADMIN_USERNAME: QsIoaMkbOzclule792V8
+      KC_BOOTSTRAP_ADMIN_PASSWORD: twnL*~P@4IHfC'|^<vxe6}Vz
+      KC_HOSTNAME: ${AZURE_IP}
+      KC_HOSTNAME_STRICT: "true"
+      KC_HTTP_PORT: 8081
+      KC_HTTP_RELATIVE_PATH: /auth # listen under /auth - way easier for nginx
+      KC_DB_URL: jdbc:postgresql://postgres:5432/horsey_keycloak
+      KC_DB_USERNAME: ${POSTGRES_USER}
+      KC_DB_PASSWORD: ${POSTGRES_PASSWORD}
+      KC_PROXY_ADDRESS_FORWARDING: true
+      KC_DB: postgres
     networks:
       - horsey-net
 
