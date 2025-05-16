@@ -22,6 +22,7 @@ services:
     container_name: horsey-frontend
     environment:
       HORSEY_API_BASE_URL: http://localhost:8085/api/
+      HORSEY_WEBSOCKET_URL: ws://localhost:8085/api/ws
       HORSEY_KEYCLOAK_URL: http://localhost:8081
       HORSEY_KEYCLOAK_REALM: horsey-realm
       HORSEY_KEYCLOAK_CLIENT_ID: horsey-frontend
