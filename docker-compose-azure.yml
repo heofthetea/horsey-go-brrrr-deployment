@@ -5,6 +5,9 @@ services:
     ports:
       - "8080:8080"
     restart: unless-stopped
+    networks:
+      - horsey-net
+
   api:
     image: heofthetea/horsey-go-brrrr-be:jvm-latest
     container_name: api
