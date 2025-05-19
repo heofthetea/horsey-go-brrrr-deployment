@@ -1,13 +1,4 @@
 services:
-  test:
-    image: testcontainers/helloworld:latest
-    container_name: test
-    ports:
-      - "8080:8080"
-    restart: unless-stopped
-    networks:
-      - horsey-net
-
   api:
     image: heofthetea/horsey-go-brrrr-be:jvm-latest
     container_name: api
@@ -68,7 +59,13 @@ services:
     restart: unless-stopped
     # ports:
     #   - "8081:8081"
-    command: ["start-dev", "--import-realm"]
+    command:
+      [
+        "start-dev",
+        "--import-realm",
+        "--proxy-headers=xforwarded",
+        "--spi-x509cert-lookup-provider=nginx",
+      ]
     volumes:
       - ./keycloak/:/opt/keycloak/data/import/
     environment:
@@ -76,6 +73,7 @@ services:
       KC_BOOTSTRAP_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
       KC_HOSTNAME: ${AZURE_IP}
       KC_HOSTNAME_STRICT: "true"
+      KC_HTTP_ENABLED: "true"
       KC_HTTP_PORT: 8081
       KC_HTTP_RELATIVE_PATH: /auth # listen under /auth - way easier for nginx
       KC_DB_URL: jdbc:postgresql://postgres:5432/horsey_keycloak
