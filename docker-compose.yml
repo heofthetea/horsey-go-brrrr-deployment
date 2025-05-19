@@ -29,7 +29,8 @@ services:
     networks:
       - horsey-net
     ports:
-      - "15173:80"
+      # - "15173:80"
+      - "40000:80"
     depends_on:
       - api
       - postgres
