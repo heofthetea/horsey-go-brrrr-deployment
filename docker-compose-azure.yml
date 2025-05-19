@@ -73,6 +73,7 @@ services:
       KC_BOOTSTRAP_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
       KC_HOSTNAME: ${AZURE_IP}
       KC_HOSTNAME_STRICT: "true"
+      KC_HTTP_ENABLED: "true"
       KC_HTTP_PORT: 8081
       KC_HTTP_RELATIVE_PATH: /auth # listen under /auth - way easier for nginx
       KC_DB_URL: jdbc:postgresql://postgres:5432/horsey_keycloak
