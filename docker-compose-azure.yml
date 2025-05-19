@@ -1,5 +1,4 @@
 services:
-
   api:
     image: heofthetea/horsey-go-brrrr-be:jvm-latest
     container_name: api
@@ -60,7 +59,13 @@ services:
     restart: unless-stopped
     # ports:
     #   - "8081:8081"
-    command: ["start-dev", "--import-realm", "--proxy-headers=xforwarded"]
+    command:
+      [
+        "start-dev",
+        "--import-realm",
+        "--proxy-headers=xforwarded",
+        "--spi-x509cert-lookup-provider=nginx",
+      ]
     volumes:
       - ./keycloak/:/opt/keycloak/data/import/
     environment:
@@ -74,7 +79,6 @@ services:
       KC_DB_USERNAME: ${POSTGRES_USER}
       KC_DB_PASSWORD: ${POSTGRES_PASSWORD}
       KC_PROXY_ADDRESS_FORWARDING: true
-      KC_HTTP_ENABLED: "
       KC_DB: postgres
     networks:
       - horsey-net
