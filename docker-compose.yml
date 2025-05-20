@@ -18,17 +18,19 @@ services:
       - keycloak
 
   frontend:
-    image: heofthetea/horsey-go-brrrr-fe:local-latest
+    image: heofthetea/horsey-go-brrrr-fe:latest
     container_name: horsey-frontend
     environment:
       HORSEY_API_BASE_URL: http://localhost:8085/api/
-      HORSEY_KEYCLOAK_URL: http://horsey-keycloak:8081
+      HORSEY_WEBSOCKET_URL: ws://localhost:8085/api/ws
+      HORSEY_KEYCLOAK_URL: http://localhost:8081
       HORSEY_KEYCLOAK_REALM: horsey-realm
       HORSEY_KEYCLOAK_CLIENT_ID: horsey-frontend
     networks:
       - horsey-net
     ports:
-      - "15173:80"
+      # - "15173:80"
+      - "40000:80"
     depends_on:
       - api
       - postgres
