@@ -3,8 +3,8 @@
 This is where a central docker compose file resides to run the horsey-go-brrrr project.<br>
 The horsey-go-brrrr project is a connect-4 game developed in the scope of the lecture "Web-Engineering II" at dhbw. It comprises of:
 
-- [https://github.com/heofthetea/horsey-go-brrrr-be](https://github.com/heofthetea/horsey-go-brrrr-fe) - a quarkus REST api
-- [https://github.com/heofthetea/horsey-go-brrrr-be](https://github.com/heofthetea/horsey-go-brrrr-fe) - a Vue.js application serving as an indepentend client
+- [https://github.com/heofthetea/horsey-go-brrrr-be](https://github.com/heofthetea/horsey-go-brrrr-be) - a quarkus REST api
+- [https://github.com/heofthetea/horsey-go-brrrr-fe](https://github.com/heofthetea/horsey-go-brrrr-fe) - a Vue.js application serving as an indepentend client
 
 ## How to run
 
