@@ -22,7 +22,7 @@ This project provides two docker compose files:
 ### Local docker compose
 
 Take notice of the `network_mode: host` on the api container. This is necessary in order to validate keycloak JWT tokens correctly - having containers communicate through service discovery would lead to issuer mismatches when validating the token.<br>
-Assuming you have built the docker containers correctly, according to the respective repo's instructions, all you need to do is run the project.
+All docker containers should be publicly available on online docker registries. As a result, all you need to do is run the docker compose file:
 
 ```bash
 docker compose up -d
