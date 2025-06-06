@@ -35,7 +35,7 @@ This project provides two docker compose files:
 1. `docker-compose-azure.yml`: This is the compose file used to deploy the application onto the cloud 
 2. `docker-compose.yml`: This is the file that should be used for local testing
 
-> **Note**: The compose file architecture differs fundamentally in architecture due to different requirements. In the cloud, only ports 443 and 80 are exposable, requiring a reverse proxy and HTTPS support for the Identity Provider. Locally, the compose files uses `network_mode: host` on one container to get around the issue of issuer mismatch errors caused by the IdP.
+> **Note**: The compose files differs fundamentally in architecture due to different requirements. In the cloud, only ports 443 and 80 are exposable, requiring a reverse proxy and HTTPS support for the Identity Provider. Locally, the compose files uses `network_mode: host` on one container to get around the issue of issuer mismatch errors caused by the IdP being accessible under tifferent IP addresses for the user and the API respectively.
 
 ### Local environment
 #### Requirements
