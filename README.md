@@ -6,6 +6,8 @@ The horsey-go-brrrr project is a connect-4 game developed in the scope of the le
 - [https://github.com/heofthetea/horsey-go-brrrr-be](https://github.com/heofthetea/horsey-go-brrrr-be) - a quarkus REST api
 - [https://github.com/heofthetea/horsey-go-brrrr-fe](https://github.com/heofthetea/horsey-go-brrrr-fe) - a Vue.js application serving as an indepentend client
 
+Splitting the project up this way is a deliberate choice based on the game architecture, where multiple logically independent client application communicate with a central server.
+
 ## About
 
 Initially, horsey-go-brrrr was intended to be a chess multiplayer game. This would have been perfectly in scope with a development team of 2, as was initially the case. However due to the unfortunate circumstance of our beloved Josia dropping out, the development team was effectively halved and a full chess application with large amount of functionality became out of scope.<br>
