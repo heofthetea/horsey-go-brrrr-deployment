@@ -40,6 +40,17 @@ The following should be provided:
 
 > **Info**: It is theoretically possible to play a game with oneself (i.e. using the same user as guest and host), however some of the apps functionality is better represented by playing with two different users.
 
+### Recommended first testing
+1. navigate to `localhost:15173`
+2. in the login form, login as `test1` user
+3. create a game
+4. open a new private browser window
+5. paste the game invite url
+6. login as `test2`
+7. start playing the game
+
+> **Warning** Use with headphones is not recommended.
+
 ## Repository tour
 
 In addition to the two docker compose files, this particular repository contains further configuration files:
